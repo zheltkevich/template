@@ -20,6 +20,7 @@
     "homepage": "https://github.com/zheltkevich/stream#readme",
     "devDependencies": {
         "css-loader": "^6.7.1",
+        "css-minimizer-webpack-plugin": "^4.2.0",
         "html-webpack-plugin": "^5.5.0",
         "json5": "^2.2.1",
         "mini-css-extract-plugin": "^2.6.1",

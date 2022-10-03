@@ -1,10 +1,10 @@
 import _ from 'lodash';
-import './styles/css/index.css';
-import './styles/scss/index.scss';
-import Icon from './assets/images/example.png';
-import printMe from './js/modules/modules.js';
-import './js/utils/utils.js';
-import json from './assets/docs/message.json5';
+import '@css/index.css';
+import '@scss/index.scss';
+import Icon from '@images/example.png';
+import printMe from '@modules/modules.js';
+import '@utils/utils.js';
+import json from '@docs/message.json5';
 
 console.log(json);
 

@@ -12,7 +12,11 @@ const mode = devMode ? 'development' : 'production';
 const CSS = devMode ? '[name].css' : '[contenthash].css';
 const JS = devMode ? '[name].js' : '[contenthash].js'; // [fullhash] or [chunkhash] or [contenthash]
 
-console.log(devMode ? '** Development mode **\n' : '|| Production mode ||\n');
+console.log(
+    devMode
+        ? '######################\n** Development mode **\n######################\n'
+        : '=====================\n|| Production mode ||\n=====================\n',
+);
 module.exports = {
     mode: mode,
     entry: {

@@ -9,7 +9,6 @@ import json from '@docs/message.json5';
 console.error(json);
 
 const component = () => {
-    // const element = document.createElement('div');
     const btn1 = document.createElement('button');
     const myIcon = new Image();
 

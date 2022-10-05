@@ -1,10 +1,11 @@
 // Modules/Plugins
 const path = require('path');
 const json5 = require('json5');
-const ESLintPlugin = require('eslint-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 
 // DevMode
@@ -25,7 +26,11 @@ module.exports = {
     devtool: devMode ? 'inline-source-map' : false,
     devServer: {
         static: './dist',
+        client: {
+            logging: 'none',
+        },
     },
+    stats: 'minimal',
     resolve: {
         alias: {
             '@css': path.resolve(__dirname, 'src/styles/css/'),
@@ -45,6 +50,9 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: filenameCSS,
             chunkFilename: filenameCSS,
+        }),
+        new StylelintPlugin({
+            fix: true,
         }),
         new ESLintPlugin({
             fix: true,

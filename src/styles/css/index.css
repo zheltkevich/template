@@ -1,9 +1,9 @@
-@import '@css/_fonts.css';
+@import "@css/_fonts.css";
 
 .hello {
-    color: red;
-    background: url('@images/example.png');
+    background: url("@images/example.png");
     background-repeat: no-repeat;
-    font-family: Montserrat, sans-serif;
+    color: #000000;
     font-weight: 600;
+    font-family: Montserrat, sans-serif;
 }

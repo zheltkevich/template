@@ -1,8 +1,8 @@
 import _ from 'lodash';
-import '@css/index.css';
-import '@scss/index.scss';
 import Icon from '@images/example.png';
 import printMe from '@modules/modules.js';
+import '@css/index.css';
+import '@scss/index.scss';
 import '@utils/utils.js';
 import json from '@docs/message.json5';
 

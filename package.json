@@ -3,12 +3,6 @@
     "version": "1.0.0",
     "description": "description",
     "private": true,
-    "scripts": {
-        "build": "webpack --node-env=production --progress",
-        "watch": "webpack --watch --progress",
-        "dev": "webpack serve --node-env=development --open --hot --progress",
-        "lint:scss": "stylelint --fix \"src/**/*.scss\" --custom-syntax postcss-scss"
-    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/zheltkevich/stream.git"
@@ -19,6 +13,20 @@
         "url": "https://github.com/zheltkevich/stream/issues"
     },
     "homepage": "https://github.com/zheltkevich/stream#readme",
+    "scripts": {
+        "build": "webpack --node-env=production --progress",
+        "watch": "webpack --watch --progress",
+        "dev": "webpack serve --node-env=development --open --hot --progress",
+        "lint:css": "stylelint \"./src/**/*.{css,sass,scss,vue}\" --quiet --fix",
+        "lint:js": "eslint ./src --ext .js,.vue --quiet --fix"
+    },
+    "gitHooks": {
+        "pre-commit": "lint-staged"
+    },
+    "lint-staged": {
+        "*.{js,vue}": "npm run lint:js",
+        "*.{css,sass,scss,vue}": "npm run lint:css"
+    },
     "devDependencies": {
         "@babel/eslint-parser": "^7.19.1",
         "css-loader": "^6.7.1",
@@ -26,7 +34,9 @@
         "eslint": "^8.24.0",
         "eslint-webpack-plugin": "^3.2.0",
         "html-webpack-plugin": "^5.5.0",
+        "husky": "^8.0.1",
         "json5": "^2.2.1",
+        "lint-staged": "^13.0.3",
         "mini-css-extract-plugin": "^2.6.1",
         "postcss": "^8.4.17",
         "postcss-loader": "^7.0.1",

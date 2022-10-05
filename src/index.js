@@ -6,13 +6,13 @@ import printMe from '@modules/modules.js';
 import '@utils/utils.js';
 import json from '@docs/message.json5';
 
-console.log(json);
+console.error(json);
 
-function component() {
+const component = () => {
     // const element = document.createElement('div');
     const btn1 = document.createElement('button');
     const myIcon = new Image();
-    
+
     btn1.innerHTML = _.join(['Click me', 'and check the console', 'supabutton'], ' ');
     btn1.classList.add('hello');
     btn1.onclick = printMe;
@@ -20,6 +20,6 @@ function component() {
     btn1.appendChild(myIcon);
 
     return btn1;
-}
+};
 
 document.body.appendChild(component());

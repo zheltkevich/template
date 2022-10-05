@@ -1,24 +1,24 @@
 // Modules/Plugins
 const path = require('path');
 const json5 = require('json5');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-// const devMode = process.env.NODE_ENV !== "production";
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+
 
 // DevMode
-const devMode = false;
-const mode = devMode ? 'development' : 'production';
-const CSS = devMode ? '[name].css' : '[contenthash].css';
-const JS = devMode ? '[name].js' : '[contenthash].js'; // [fullhash] or [chunkhash] or [contenthash]
+const { NODE_ENV } = process.env;
+const devMode = NODE_ENV === 'development';
+const filenameJS = devMode ? '[name].js' : '[contenthash].js'; // [fullhash] or [chunkhash] or [contenthash]
+const filenameCSS = devMode ? '[name].css' : '[contenthash].css'; // [fullhash] or [chunkhash] or [contenthash]
 
-console.log(
-    devMode
-        ? '######################\n** Development mode **\n######################\n'
-        : '=====================\n|| Production mode ||\n=====================\n',
-);
+// eslint-disable-next-line no-console
+console.log(devMode
+    ? '######################\n** Development mode **\n######################\n'
+    : '=====================\n|| Production mode ||\n=====================\n');
 module.exports = {
-    mode: mode,
+    mode: NODE_ENV,
     entry: {
         index: './src/index.js',
     },
@@ -36,14 +36,18 @@ module.exports = {
             '@modules': path.resolve(__dirname, 'src/js/modules/'),
             '@utils': path.resolve(__dirname, 'src/js/utils/'),
         },
-      },
+    },
     plugins: [
         new HtmlWebpackPlugin({
+            template: './public/index.html',
             title: 'Stream',
         }),
         new MiniCssExtractPlugin({
-            filename: CSS,
-            chunkFilename: CSS,
+            filename: filenameCSS,
+            chunkFilename: filenameCSS,
+        }),
+        new ESLintPlugin({
+            fix: true,
         }),
     ],
     module: {
@@ -52,12 +56,12 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
                     devMode
-                        ? "style-loader"
+                        ? 'style-loader'
                         : MiniCssExtractPlugin.loader,
-                    "css-loader",
-                    "postcss-loader",
+                    'css-loader',
+                    'postcss-loader',
                     {
-                        loader: "sass-loader",
+                        loader: 'sass-loader',
                         options: {
                             additionalData: '// Additional data is working!!!',
                         },
@@ -81,17 +85,21 @@ module.exports = {
             },
         ],
     },
-    output: {
-        filename: JS,
-        path: path.resolve(__dirname, 'dist'),
-        clean: true,
-    },
     optimization: {
         runtimeChunk: 'single',
         minimizer: [
             // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
-            `...`,
+            '...',
             new CssMinimizerPlugin(),
         ],
+    },
+    cache: {
+        type: 'filesystem',
+        cacheDirectory: path.resolve(__dirname, '.cache'),
+    },
+    output: {
+        filename: filenameJS,
+        path: path.resolve(__dirname, 'dist'),
+        clean: true,
     },
 };

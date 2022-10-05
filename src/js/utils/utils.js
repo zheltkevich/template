@@ -1,1 +1,1 @@
-console.log('utils.js connected');
+console.error('utils.js connected');

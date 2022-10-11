@@ -1,18 +1,22 @@
 {
-    "name": "streams",
+    "name": "template",
     "version": "1.0.0",
     "description": "description",
+    "author": "Aleksandr Zheltkevich",
+    "license": "SEE LICENSE IN LICENSE.txt",
+    "homepage": "https://github.com/zheltkevich/template#readme",
+    "bugs": {
+        "url": "https://github.com/zheltkevich/template/issues"
+    },
     "private": true,
+    "engines": {
+        "npm": ">=8.0.0 <9.0.0",
+        "node": ">=16.0.0 <17.0.0"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/zheltkevich/stream.git"
     },
-    "author": "Aleksandr Zheltkevich",
-    "license": "SEE LICENSE IN LICENSE.txt",
-    "bugs": {
-        "url": "https://github.com/zheltkevich/stream/issues"
-    },
-    "homepage": "https://github.com/zheltkevich/stream#readme",
     "scripts": {
         "build": "webpack --node-env=production --progress",
         "watch": "webpack --watch --progress",

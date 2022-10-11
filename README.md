@@ -7,6 +7,6 @@
 *vue3* — *master* + `vue@3`, `vuex@4`, `vue-router@4`  
 
 #### Scripts:
-`npm run setup` — install dependencies then patch pre-commit hook
-`npm run build` — starts building the production build into the **.dist** folder  
-`npm run dev` — up the webpack dev server in development with hot module reload, source-map, etc.
+`npm run setup` — installing dependencies then patching pre-commit hook  
+`npm run build` — production build packing into the **.dist** folder  
+`npm run dev` — starting the webpack dev server in development with hot module reload, source-map and pre-commit guard  

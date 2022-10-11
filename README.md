@@ -1,7 +1,7 @@
 #### Required:
-*node* `>=16.0.0 <17.0.0`  
-*npm* `>=8.0.0 <9.0.0`  
+**`node`** >=16.0.0 <17.0.0  
+**`npm`** >=8.0.0 <9.0.0  
 
 #### Different *branches* contain different templates:
-*master* — `webpack5, eslint, stylelint, lint-staged`  
-*vue3* — *master* + `vue3, vuex4, router4`   
+*master* — `webpack@5`, `eslint@8`, `stylelint@14`, `lint-staged@13`  
+*vue3* — *master* + `vue@3`, `vuex@4`, `vue-router@4`   

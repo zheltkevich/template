@@ -21,8 +21,8 @@
         "node": ">=16.0.0 <17.0.0"
     },
     "scripts": {
+        "setup": "npm install && npx husky install",
         "build": "webpack --node-env=production --progress",
-        "watch": "webpack --watch --progress",
         "dev": "webpack serve --node-env=development --open --hot --progress",
         "lint:css": "stylelint \"./src/**/*.{css,sass,scss,vue}\" --quiet --fix",
         "lint:js": "eslint ./src --ext .js,.vue --quiet --fix"

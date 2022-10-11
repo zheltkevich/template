@@ -1,6 +1,6 @@
 #### Required:
-`node >=16.0.0 <17.0.0`  
-`npm >=8.0.0 <9.0.0`  
+`node` >=16.0.0 <17.0.0  
+`npm` >=8.0.0 <9.0.0  
 
 Different branches contain different templates: 
 master — webpack5, eslint, stylelint, lint-staged; 

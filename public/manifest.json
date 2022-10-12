@@ -1,0 +1,16 @@
+{
+    "name": "Template",
+    "short_name": "Template",
+    "orientation": "portrait",
+    "display": "standalone",
+    "start_url": ".",
+    "description": "Ready to go template for a frontend project easy launch",
+    "background_color": "#ffffff",
+    "icons": [
+        {
+            "src": "./sample.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

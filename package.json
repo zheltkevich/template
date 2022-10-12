@@ -21,7 +21,7 @@
         "node": ">=16.0.0 <17.0.0"
     },
     "scripts": {
-        "setup": "npm install && npx husky install",
+        "setup": "npm install && npx husky install && npx husky add .husky/pre-commit 'npx lint-staged'",
         "build": "webpack --node-env=production --progress",
         "dev": "webpack serve --node-env=development --open --hot --progress",
         "lint:css": "stylelint \"./src/**/*.{css,sass,scss,vue}\" --quiet --fix",

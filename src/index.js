@@ -6,7 +6,8 @@ import '@scss/index.scss';
 import '@utils/utils.js';
 import json from '@docs/message.json5';
 
-console.error(json);
+// eslint-disable-next-line no-console
+console.log('JSON conected: ', json);
 
 const component = () => {
     const btn1 = document.createElement('button');
@@ -22,3 +23,16 @@ const component = () => {
 };
 
 document.body.appendChild(component());
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').then(registration => {
+            // eslint-disable-next-line no-console
+            console.log('SW registered: ', registration);
+        })
+            .catch(registrationError => {
+                // eslint-disable-next-line no-console
+                console.log('SW registration failed: ', registrationError);
+            });
+    });
+}

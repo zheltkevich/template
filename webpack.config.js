@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 
 // DevMode
@@ -21,7 +22,7 @@ console.log(devMode
 module.exports = {
     mode: NODE_ENV,
     entry: {
-        index: './src/index.js',
+        index: path.resolve(__dirname, 'src/index.js'),
     },
     devtool: devMode ? 'inline-source-map' : false,
     devServer: {
@@ -42,9 +43,13 @@ module.exports = {
         },
     },
     plugins: [
+        new WorkboxPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true,
+        }),
         new HtmlWebpackPlugin({
-            template: './public/index.html',
-            title: 'Stream',
+            title: 'Template',
+            // template: './public/index.html',
         }),
         new MiniCssExtractPlugin({
             filename: filenameCSS,

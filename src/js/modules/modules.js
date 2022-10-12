@@ -4,7 +4,8 @@ export default function printMe() {
 }
 
 const test = val => {
-    console.error(val);
+    // eslint-disable-next-line no-console
+    console.log(val);
 };
 
-test('dshufakbusdsdadadasfasfsfsagbf');
+test('test function is working');

@@ -25,7 +25,6 @@ module.exports = {
     },
     devtool: devMode ? 'inline-source-map' : false,
     devServer: {
-        static: './dist',
         client: {
             logging: 'none',
         },
@@ -100,10 +99,6 @@ module.exports = {
             '...',
             new CssMinimizerPlugin(),
         ],
-    },
-    cache: {
-        type: 'filesystem',
-        cacheDirectory: path.resolve(__dirname, '.cache'),
     },
     output: {
         filename: filenameJS,

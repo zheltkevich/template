@@ -23,8 +23,8 @@
     "scripts": {
         "init": "npm install && npx husky install && npx husky add .husky/pre-commit 'npx lint-staged'",
         "build": "webpack --node-env=production --progress --config ./webpack.production.js",
-        "gh-deploy": "node --experimental-modules scripts/gh-deploy.mjs",
         "dist": "npm run build && http-server dist",
+        "gh-deploy": "node --experimental-modules scripts/gh-deploy.mjs",
         "dev": "webpack serve --node-env=development --open --hot --progress --config ./webpack.development.js",
         "lint:css": "stylelint \"./src/**/*.{css,sass,scss,vue}\" --quiet --fix",
         "lint:js": "eslint ./src --ext .js,.vue --quiet --fix"

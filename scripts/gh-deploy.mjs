@@ -1,25 +1,21 @@
-// const execa = require('execa');
 import { execa } from 'execa';
 
 (async () => {
     try {
         await execa('git', ['checkout', '--orphan', 'gh-pages']);
-        // eslint-disable-next-line no-console
-        console.log('Building...');
+        console.log('Building...'); // eslint-disable-line no-console
         await execa('npm', ['run', 'build']);
         await execa('git', ['--work-tree', 'dist', 'add', '--all']);
         await execa('git', ['--work-tree', 'dist', 'commit', '-m', 'gh-pages']);
-        // eslint-disable-next-line no-console
-        console.log('Pushing to gh-pages...');
+        console.log('Pushing to gh-pages...'); // eslint-disable-line no-console
         await execa('git', ['push', 'origin', 'HEAD:gh-pages', '--force']);
         await execa('rm', ['-r', 'dist']);
         await execa('git', ['checkout', '-f', 'master']);
         await execa('git', ['branch', '-D', 'gh-pages']);
-        // eslint-disable-next-line no-console
-        console.log('Successfully deployed');
+        console.log('Successfully deployed'); // eslint-disable-line no-console
     } catch (e) {
-        // eslint-disable-next-line no-console
-        console.log(e.message);
+
+        console.log(e.message); // eslint-disable-line no-console
         process.exit(1);
     }
 })();

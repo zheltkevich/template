@@ -1,38 +1,21 @@
-import _ from 'lodash';
-import Icon from '@images/example.png';
-import printMe from '@modules/modules.js';
+// import _ from 'lodash';
+import printMeModules from '@modules/modules.js';
+import printMeUtils from '@utils/utils.js';
 import '@css/index.css';
 import '@scss/index.scss';
-import '@utils/utils.js';
 import json from '@docs/message.json5';
 
-// eslint-disable-next-line no-console
-console.log('JSON conected: ', json);
-
-const component = () => {
-    const btn1 = document.createElement('button');
-    const myIcon = new Image();
-
-    btn1.innerHTML = _.join(['Click me', 'and check the console', 'supabutton'], ' ');
-    btn1.classList.add('hello');
-    btn1.onclick = printMe;
-    myIcon.src = Icon;
-    btn1.appendChild(myIcon);
-
-    return btn1;
-};
-
-document.body.appendChild(component());
+printMeUtils(json.title);
+printMeModules(json.title);
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js').then(registration => {
-            // eslint-disable-next-line no-console
-            console.log('SW registered: ', registration);
-        })
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+                console.log('SW registered: ', registration); // eslint-disable-line no-console
+            })
             .catch(registrationError => {
-                // eslint-disable-next-line no-console
-                console.log('SW registration failed: ', registrationError);
+                console.log('SW registration failed: ', registrationError); // eslint-disable-line no-console
             });
     });
 }

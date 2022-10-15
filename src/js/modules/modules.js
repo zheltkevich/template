@@ -1,11 +1,7 @@
-export default function printMe() {
-    // eslint-disable-next-line no-console
-    console.log('I get called from modules.js!');
-}
 
-const test = val => {
+const printMeModules = text => {
     // eslint-disable-next-line no-console
-    console.log(val);
+    console.log(`modules.js connected! {{ ${text} }}`);
 };
 
-test('test function is working');
+export default printMeModules;

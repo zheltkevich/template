@@ -3,6 +3,7 @@
     "short_name": "Template",
     "orientation": "portrait",
     "display": "standalone",
+    "id": "/",
     "start_url": ".",
     "description": "Ready to go template for a frontend project easy launch",
     "theme_color": "#ffffff",
@@ -49,5 +50,6 @@
             "type": "image/png",
             "purpose": "maskable"
         }
-    ]
+    ],
+    "prefer_related_applications": false
 }

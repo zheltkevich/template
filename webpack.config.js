@@ -4,9 +4,10 @@ const json5 = require('json5');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
+// const WorkboxPlugin = require('workbox-webpack-plugin');
 
 
 // DevMode
@@ -43,13 +44,26 @@ module.exports = {
         },
     },
     plugins: [
-        new WorkboxPlugin.GenerateSW({
-            clientsClaim: true,
-            skipWaiting: true,
+        new CopyPlugin({
+            patterns: [
+                'public/manifest.json',
+                {
+                    from: 'public/icons',
+                    to: 'icons/',
+                },
+                {
+                    from: 'public/favicon.ico',
+                    to: '.',
+                },
+            ],
         }),
+        // new WorkboxPlugin.GenerateSW({
+        //     clientsClaim: true,
+        //     skipWaiting: true,
+        // }),
         new HtmlWebpackPlugin({
-            title: 'Template',
-            // template: './public/index.html',
+            // title: 'Template',
+            template: './public/index.html',
         }),
         new MiniCssExtractPlugin({
             filename: filenameCSS,

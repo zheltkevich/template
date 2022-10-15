@@ -21,9 +21,9 @@
         "node": ">=16.0.0 <17.0.0"
     },
     "scripts": {
-        "setup": "npm install && npx husky install && npx husky add .husky/pre-commit 'npx lint-staged'",
+        "init": "npm install && npx husky install && npx husky add .husky/pre-commit 'npx lint-staged'",
         "build": "webpack --node-env=production --progress",
-        "dist": "npm run build && http-server dist",
+        "dist": "webpack --node-env=development && http-server dist",
         "dev": "webpack serve --node-env=development --open --hot --progress",
         "lint:css": "stylelint \"./src/**/*.{css,sass,scss,vue}\" --quiet --fix",
         "lint:js": "eslint ./src --ext .js,.vue --quiet --fix"
@@ -40,6 +40,7 @@
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.19.1",
+        "copy-webpack-plugin": "^11.0.0",
         "css-loader": "^6.7.1",
         "css-minimizer-webpack-plugin": "^4.2.0",
         "eslint": "^8.24.0",

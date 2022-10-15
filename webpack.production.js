@@ -44,11 +44,11 @@ module.exports = {
                 'public/manifest.json',
                 {
                     from: 'public/icons',
-                    to: 'icons/',
+                    to: './icons/',
                 },
                 {
                     from: 'public/favicon.ico',
-                    to: '.',
+                    to: './',
                 },
             ],
         }),

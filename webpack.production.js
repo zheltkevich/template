@@ -36,7 +36,6 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            // title: 'Template',
             template: './public/index.html',
         }),
         new CopyPlugin({

@@ -15,10 +15,14 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     devServer: {
+        static: {
+            directory: path.join(__dirname, 'public'),
+        },
+        compress: true,
         client: {
             logging: 'none',
+            overlay: false,
         },
-
     },
     stats: 'minimal',
     resolve: {

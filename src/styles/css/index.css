@@ -2,7 +2,6 @@
 @import "@css/_vars.css";
 
 .hello {
-    background: url("@images/pwa-ready.png");
     background-repeat: no-repeat;
     color: #000000;
     font-weight: 900;

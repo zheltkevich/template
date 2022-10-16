@@ -20,8 +20,39 @@ body {
         sans-serif;
 }
 
+h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+a {
+    font-weight: 600;
+    font-size: 16px;
+}
+
 .header {
-    padding-top: 24px;
+    padding-top: 48px;
     padding-bottom: 24px;
 }
 
@@ -31,8 +62,20 @@ body {
 }
 
 .footer {
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 16px 32px;
+        border-radius: 16px;
+        background-color: var(--button-primary);
+        color: var(--white);
+        text-decoration: none;
+    }
 }
 
 .container {
@@ -42,13 +85,34 @@ body {
     padding-left: 24px;
 }
 
+.about {
+    &__description {
+        margin-top: 16px;
+    }
+}
+
 .cards {
+    margin-top: 48px;
+
     &__wrapper {
         display: grid;
         grid-template-rows: auto;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 16px;
+        margin-top: 16px;
+    }
+}
 
-        // grid-template-columns: repeat(auto-fill, minmax(50%, 100%));
-        grid-auto-rows: min-content;
-        grid-auto-columns: min-content;
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100px;
+    padding: 16px;
+    border-radius: 16px;
+    background-color: var(--white);
+
+    &__logo {
+        width: 48px;
     }
 }

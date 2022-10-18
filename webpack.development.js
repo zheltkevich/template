@@ -6,13 +6,13 @@ const CopyPlugin = require('copy-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
-// eslint-disable-next-line no-console
-console.log('######################\n** Development mode **\n######################\n');
+const { mode, entry, resolve, optimization, output } = require('./webpack.config.js');
+
+
+console.log('######################\n** Development mode **\n######################\n'); // eslint-disable-line no-console
 module.exports = {
-    mode: 'development',
-    entry: {
-        index: path.resolve(__dirname, 'src/index.js'),
-    },
+    mode,
+    entry,
     devtool: 'inline-source-map',
     devServer: {
         static: {
@@ -25,17 +25,7 @@ module.exports = {
         },
     },
     stats: 'minimal',
-    resolve: {
-        alias: {
-            '@css': path.resolve(__dirname, 'src/styles/css/'),
-            '@scss': path.resolve(__dirname, 'src/styles/scss/'),
-            '@docs': path.resolve(__dirname, 'src/assets/docs/'),
-            '@fonts': path.resolve(__dirname, 'src/assets/fonts/'),
-            '@images': path.resolve(__dirname, 'src/assets/images/'),
-            '@modules': path.resolve(__dirname, 'src/js/modules/'),
-            '@utils': path.resolve(__dirname, 'src/js/utils/'),
-        },
-    },
+    resolve,
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
@@ -43,8 +33,11 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 {
-                    from: 'public/favicon.ico',
+                    from: 'public/**/*',
                     to: '.',
+                    globOptions: {
+                        ignore: ['index.html'],
+                    },
                 },
             ],
         }),
@@ -88,4 +81,6 @@ module.exports = {
             },
         ],
     },
+    optimization,
+    output,
 };

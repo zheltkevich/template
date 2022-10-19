@@ -1,9 +1,9 @@
 {
     "name": "Template",
     "short_name": "Template",
-    "orientation": "portrait",
+    "orientation": "any",
     "display": "standalone",
-    "id": "/template",
+    "id": "/",
     "start_url": ".",
     "description": "Ready to go template for a frontend project easy launch",
     "theme_color": "#ffffff",

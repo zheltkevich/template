@@ -1,24 +1,18 @@
 // Modules/Plugins
-const json5 = require('json5');
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-const { mode, entry, resolve, optimization, output } = require('./webpack.config.js');
-
-console.log('=====================\n|| Production mode ||\n=====================\n'); // eslint-disable-line no-console
 module.exports = {
-    mode,
-    entry,
     devtool: false,
     devServer: {
         client: {
             logging: 'none',
         },
     },
-    stats: 'minimal',
-    resolve,
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
@@ -34,7 +28,7 @@ module.exports = {
                 },
             ],
         }),
-        new WorkboxPlugin.GenerateSW({
+        new GenerateSW({
             cleanupOutdatedCaches: true,
             skipWaiting: true,
             clientsClaim: true,
@@ -44,39 +38,17 @@ module.exports = {
             chunkFilename: '[contenthash].css',
         }),
     ],
-    module: {
-        rules: [
-            {
-                test: /\.(sa|sc|c)ss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'postcss-loader',
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            additionalData: '// Additional data is working!!!',
-                        },
-                    },
-                ],
-            },
-            {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
-            },
-            {
-                test: /\.(ttf|otf|eot|woff|woff2)$/i,
-                type: 'asset/resource',
-            },
-            {
-                test: /\.json5$/i,
-                type: 'json',
-                parser: {
-                    parse: json5.parse,
-                },
-            },
+    optimization: {
+        runtimeChunk: 'single',
+        minimizer: [
+            '...',
+            new CssMinimizerPlugin(),
         ],
     },
-    optimization,
-    output,
+    output: {
+        filename: '[contenthash].js',
+        path: path.resolve(__dirname, 'dist'),
+        clean: true,
+        publicPath: './',
+    },
 };

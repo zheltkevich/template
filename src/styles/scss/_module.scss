@@ -1,10 +1,16 @@
+* {
+    box-sizing: border-box;
+    transition: 0.3s ease-in-out;
+    transition-property: color background-color box-shadow;
+}
+
 body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     margin: 0;
-    background-color: var(--background-main);
-    color: var(--text-main);
+    background-color: var(--surface1);
+    color: var(--text1);
     font-family:
         Montserrat,
         system-ui,
@@ -53,7 +59,44 @@ a {
 
 .header {
     padding-top: 48px;
-    padding-bottom: 24px;
+    padding-bottom: 8px;
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.logo {
+    border-radius: 50%;
+
+    path {
+        fill: currentcolor;
+    }
+
+    &.brand {
+        border: none;
+    }
+}
+
+.theme-switcher {
+    display: flex;
+    column-gap: 8px;
+
+    label {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    input {
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 .main {
@@ -71,9 +114,7 @@ a {
         max-width: 100%;
         margin: 0 auto;
         padding: 16px 32px;
-        border-radius: 16px;
-        background-color: var(--button-primary);
-        color: var(--white);
+        border-radius: 32px;
         text-decoration: none;
     }
 }
@@ -104,24 +145,22 @@ a {
 }
 
 .card {
+    position: relative;
     display: flex;
     flex-direction: column;
     row-gap: 16px;
     align-items: flex-start;
     justify-content: space-between;
     padding: 16px;
-    border-radius: 16px;
-    background-color: var(--white);
+    border-radius: 32px;
 
     &__logo-wrapper {
         display: flex;
         align-self: flex-end;
         overflow: hidden;
         padding: 8px;
-        border: 3px solid var(--background-main);
         border-radius: 50%;
-
-        // background-color: var(--black);
+        backdrop-filter: blur(10px);
     }
 
     &__logo {

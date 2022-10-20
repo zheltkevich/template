@@ -1,9 +1,1 @@
 @import "@css/_fonts.css";
-@import "@css/_vars.css";
-
-.hello {
-    background-repeat: no-repeat;
-    color: #000000;
-    font-weight: 900;
-    font-family: Montserrat, sans-serif;
-}

@@ -16,38 +16,66 @@
 <body>
     <header class="header">
         <div class="container">
-            <img src="./images/logo-template.svg" alt="Template logo">
+            <div class="header__wrapper">
+                <svg class="logo brand rad-shadow" width="40" height="40" viewBox="0 0 41 40" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.4459 38C30.6086 38 38.8471 29.9411 38.8471 20C38.8471 10.0589 30.6086 2 20.4459 2C10.2831 2 2.04459 10.0589 2.04459 20C2.04459 29.9411 10.2831 38 20.4459 38ZM20.4459 40C31.7378 40 40.8917 31.0457 40.8917 20C40.8917 8.95431 31.7378 0 20.4459 0C9.15393 0 0 8.95431 0 20C0 31.0457 9.15393 40 20.4459 40Z"
+                        fill="#2B2B2B" />
+                    <path
+                        d="M20.4461 30C22.468 30 24.4445 29.4135 26.1256 28.3147C27.8068 27.2159 29.1171 25.6541 29.8908 23.8268C30.6646 21.9996 30.867 19.9889 30.4726 18.0491C30.0781 16.1093 29.1045 14.3275 27.6748 12.9289C26.2451 11.5304 24.4235 10.578 22.4405 10.1922C20.4574 9.8063 18.4019 10.0043 16.5339 10.7612C14.6659 11.5181 13.0693 12.7998 11.946 14.4443C10.8227 16.0888 10.2231 18.0222 10.2231 20L20.4461 20L20.4461 30Z"
+                        fill="#2B2B2B" />
+                </svg>
+                <form id="theme-switcher" class="header__theme-switcher theme-switcher">
+                    <label class=" theme-switcher__label text1" for="auto">
+                        <input checked type="radio" id="auto" name="theme" value="auto">
+                        Auto
+                    </label>
+                    <label class=" theme-switcher__label text1" for="light">
+                        <input type="radio" id="light" name="theme" value="light">
+                        Light
+                    </label>
+
+                    <label class=" theme-switcher__label text1" for="dark">
+                        <input type="radio" id="dark" name="theme" value="dark">
+                        Dark
+                    </label>
+                    <label class=" theme-switcher__label text1" for="dim">
+                        <input type="radio" id="dim" name="theme" value="dim">
+                        Dim
+                    </label>
+                </form>
+            </div>
         </div>
     </header>
     <main class="main">
         <div class="container">
             <section class="about">
-                <h1 class="about__title">Template</h1>
-                <p class="about__description">Ready to go template for a frontend project easy launch</p>
+                <h1 class="about__title text2">Template</h1>
+                <p class="about__description text1">Ready to go template for a frontend project easy launch</p>
             </section>
             <section class="cards">
-                <h2 class="cards__title">Contains:</h2>
-                <div class="cards__wrapper">
-                    <article class="card">
-                        <div class="card__logo-wrapper">
+                <h2 class="cards__title text2">Contains:</h2>
+                <div class="cards__wrapper surface-samples">
+                    <article class="card surface2 rad-shadow">
+                        <div class="card__logo-wrapper rad-shadow">
                             <img class="card__logo" src="./images/logo-pwa.svg" alt="PWA logo">
                         </div>
                         <h3 class="card__title">Progressive Web App</h3>
                     </article>
-                    <article class="card">
-                        <div class="card__logo-wrapper">
+                    <article class="card surface2 rad-shadow">
+                        <div class="card__logo-wrapper rad-shadow">
                             <img class="card__logo" src="./images/logo-webpack.svg" alt="Webpack logo">
                         </div>
                         <h3 class="card__title">Webpack</h3>
                     </article>
-                    <article class="card">
-                        <div class="card__logo-wrapper">
+                    <article class="card surface2 rad-shadow">
+                        <div class="card__logo-wrapper rad-shadow">
                             <img class="card__logo" src="./images/logo-eslint.svg" alt="Eslint logo">
                         </div>
                         <h3 class="card__title">Eslint</h3>
                     </article>
-                    <article class="card">
-                        <div class="card__logo-wrapper">
+                    <article class="card surface2 rad-shadow">
+                        <div class="card__logo-wrapper rad-shadow">
                             <img class="card__logo" src="./images/logo-stylelint.svg" alt="Stylelint logo">
                         </div>
                         <h3 class="card__title">Stylelint</h3>
@@ -58,13 +86,12 @@
     </main>
     <footer class="footer">
         <div class="container">
-            <a class="footer__button" href="https://github.com/zheltkevich/template#readme" target="_blank">
+            <a class="footer__button surface2 rad-shadow hover" href="https://github.com/zheltkevich/template#readme"
+                target="_blank">
                 Get started
             </a>
         </div>
     </footer>
-
-
 </body>
 
 </html>

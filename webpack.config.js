@@ -34,7 +34,7 @@ module.exports = {
             '@scss': path.resolve(__dirname, 'src/styles/scss/'),
             '@docs': path.resolve(__dirname, 'src/assets/docs/'),
             '@fonts': path.resolve(__dirname, 'src/assets/fonts/'),
-            '@images': path.resolve(__dirname, 'src/assets/images/'),
+            '@images': path.resolve(__dirname, 'public/images/'),
             '@modules': path.resolve(__dirname, 'src/js/modules/'),
             '@utils': path.resolve(__dirname, 'src/js/utils/'),
         },

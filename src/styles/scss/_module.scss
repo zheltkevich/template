@@ -96,8 +96,8 @@ a {
 
     &__wrapper {
         display: grid;
-        grid-template-rows: auto;
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-auto-rows: minmax(100px, 1fr);
         gap: 16px;
         margin-top: 16px;
     }
@@ -106,11 +106,23 @@ a {
 .card {
     display: flex;
     flex-direction: column;
+    row-gap: 16px;
+    align-items: flex-start;
     justify-content: space-between;
-    min-height: 100px;
     padding: 16px;
     border-radius: 16px;
     background-color: var(--white);
+
+    &__logo-wrapper {
+        display: flex;
+        align-self: flex-end;
+        overflow: hidden;
+        padding: 8px;
+        border: 3px solid var(--background-main);
+        border-radius: 50%;
+
+        // background-color: var(--black);
+    }
 
     &__logo {
         width: 48px;

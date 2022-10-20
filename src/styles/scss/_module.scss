@@ -141,8 +141,6 @@ a {
 
     &__logo-wrapper {
         display: flex;
-
-        // align-self: flex-end;
         overflow: hidden;
         padding: 8px;
         border-radius: 50%;
@@ -155,6 +153,7 @@ a {
 }
 
 .footer {
+    position: relative;
     padding-top: 48px;
     padding-bottom: 48px;
 

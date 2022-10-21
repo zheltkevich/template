@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
-    transition: 0.3s ease-in-out;
-    transition-property: color background-color box-shadow;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
 }
 
 body {

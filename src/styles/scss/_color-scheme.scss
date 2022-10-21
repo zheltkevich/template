@@ -156,6 +156,11 @@ html {
 
     color-scheme: dark;
 }
+
+* {
+    transition: 0.3s ease-in-out;
+    transition-property: color, background-color, box-shadow;
+}
   
 .brand {
     color: var(--brand);

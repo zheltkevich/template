@@ -1,24 +1,23 @@
-const switcher = document.querySelector('#theme-switcher');
+const themeSwitcher = document.querySelector('#theme-switcher');
 const meta = document.querySelector('meta[name="theme-color"]');
 const doc = document.firstElementChild;
-const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 const prefersLightScheme = window.matchMedia('(prefers-color-scheme: light)');
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
-if (prefersLightScheme.matches) meta.setAttribute('content', '#ffffff');
-else if (prefersDarkScheme.matches) meta.setAttribute('content', '#000000');
+if (prefersLightScheme.matches) meta.setAttribute('content', 'hsl(200 25% 90%)');
+else if (prefersDarkScheme.matches) meta.setAttribute('content', 'hsl(200 10% 10%)');
 
 const setTheme = theme => {
     if (theme === 'auto') {
         doc.removeAttribute('color-scheme');
-        meta.setAttribute('content', 'transparent');
 
     } else {
         doc.setAttribute('color-scheme', theme);
-        meta.setAttribute('content', theme);
     }
-
 };
 
-switcher.addEventListener('input', e => {
-    setTheme(e.target.value);
+themeSwitcher.addEventListener('input', event => {
+    const { value } = event.target;
+
+    setTheme(value);
 });

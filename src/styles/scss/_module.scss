@@ -91,7 +91,9 @@ a {
     border-radius: 16px;
 
     label {
-        padding: 8px;
+        display: flex;
+        align-items: center;
+        padding: 10px 12px;
         color: var(--text2);
 
         &:hover {
@@ -105,6 +107,7 @@ a {
 
     input {
         margin: 0;
+        margin-right: 8px;
 
         &:hover {
             cursor: pointer;

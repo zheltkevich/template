@@ -12,23 +12,18 @@ const colors = {
     dim: 'hsl(200 10% 20%)',
 };
 
-const setTopCurtainColor = () => {
-    const savedScheme = localStorage.getItem('color-scheme');
-
-    if (savedScheme === 'auto') {
-        if (prefersLightScheme.matches) meta.setAttribute('content', colors.light);
-        else if (prefersDarkScheme.matches) meta.setAttribute('content', colors.dark);
-    } else {
-        meta.setAttribute('content', colors[savedScheme]);
-    }
-};
-
 const setScheme = scheme => {
     localStorage.setItem('color-scheme', scheme);
 
-    if (scheme !== 'auto') html.setAttribute('color-scheme', scheme);
+    if (scheme === 'auto') {
+        if (prefersLightScheme.matches) meta.setAttribute('content', colors.light);
+        else if (prefersDarkScheme.matches) meta.setAttribute('content', colors.dark);
 
-    setTopCurtainColor();
+        html.removeAttribute('color-scheme');
+    } else {
+        meta.setAttribute('content', colors[scheme]);
+        html.setAttribute('color-scheme', scheme);
+    }
 };
 
 const toggleLabelPickedClass = value => {
@@ -47,14 +42,10 @@ const setupSwitcher = () => {
 };
 
 const setupScheme = () => {
-    let savedScheme = localStorage.getItem('color-scheme');
+    const savedScheme = localStorage.getItem('color-scheme');
 
-    if (savedScheme === null) {
-        localStorage.setItem('color-scheme', 'auto');
-        savedScheme = localStorage.getItem('color-scheme');
-    }
-
-    setScheme(savedScheme);
+    if (savedScheme === null) setScheme('auto');
+    else setScheme(savedScheme);
 };
 
 schemeSwitcher.addEventListener('input', event => {

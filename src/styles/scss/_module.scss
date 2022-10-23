@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
-    scroll-behavior: smooth;
 }
 
 body {
@@ -24,6 +23,7 @@ body {
         "Open Sans",
         "Helvetica Neue",
         sans-serif;
+    scroll-behavior: smooth;
 }
 
 h1 {
@@ -64,9 +64,10 @@ a {
     &__wrapper {
         display: flex;
         flex-wrap: wrap;
-        gap: 16px;
+        row-gap: 24px;
         align-items: center;
         justify-content: space-between;
+        column-gap: 16px;
     }
 }
 
@@ -82,17 +83,29 @@ a {
     }
 }
 
-.theme-switcher {
+.scheme-switcher {
     display: flex;
-    column-gap: 8px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border-radius: 16px;
 
     label {
+        padding: 8px;
+        color: var(--text2);
+
         &:hover {
             cursor: pointer;
+        }
+
+        &.checked {
+            background-color: var(--surface2);
         }
     }
 
     input {
+        margin: 0;
+
         &:hover {
             cursor: pointer;
         }

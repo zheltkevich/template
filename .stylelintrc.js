@@ -36,7 +36,7 @@ module.exports = {
         'selector-max-compound-selectors': 3,
         'selector-class-pattern': ['^([a-z]+[\\-_a-z0-9]*[^\\-]|[a-z]+)$'],
 
-        'color-function-notation': 'legacy',
+        'color-function-notation': 'modern',
         'color-hex-length': 'long',
         'color-named': 'never',
 

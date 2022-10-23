@@ -1,15 +1,9 @@
-/* stylelint-disable alpha-value-notation */
-/* stylelint-disable no-duplicate-selectors */
-/* stylelint-disable declaration-colon-newline-after */
-/* stylelint-disable no-eol-whitespace */
-/* stylelint-disable number-leading-zero */
-/* stylelint-disable color-function-notation */
 html {
     /* brand foundation */
     --brand-hue: 200;
     --brand-saturation: 100%;
     --brand-lightness: 50%;
-  
+
     /* light */
     --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
     --text1-light: hsl(var(--brand-hue) var(--brand-saturation) 10%);
@@ -24,13 +18,14 @@ html {
     --surface-cta-shadow-light: var(--brand-hue) 10% 20%;
     --surface-cta-shadow-light-hover: var(--brand-hue) 60% 40%;
     --shadow-strength-light: 0.02;
-  
+
     /* dark */
-    --brand-dark: hsl(
-        var(--brand-hue) 
-        calc(var(--brand-saturation) / 2)
-        calc(var(--brand-lightness) / 1.5)
-    );
+    --brand-dark:
+        hsl(
+            var(--brand-hue)
+            calc(var(--brand-saturation) / 2)
+            calc(var(--brand-lightness) / 1.5)
+        );
     --text1-dark: hsl(var(--brand-hue) 15% 85%);
     --text2-dark: hsl(var(--brand-hue) 5% 65%);
     --surface1-dark: hsl(var(--brand-hue) 10% 10%);
@@ -43,13 +38,14 @@ html {
     --surface-cta-shadow-dark: var(--brand-hue) 50% 3%;
     --surface-cta-shadow-dark-hover: var(--brand-hue) 50% 3%;
     --shadow-strength-dark: 0.8;
-  
+
     /* dim */
-    --brand-dim: hsl(
-        var(--brand-hue) 
-        calc(var(--brand-saturation) / 1.25)
-        calc(var(--brand-lightness) / 1.25)
-    );
+    --brand-dim:
+        hsl(
+            var(--brand-hue)
+            calc(var(--brand-saturation) / 1.25)
+            calc(var(--brand-lightness) / 1.25)
+        );
     --text1-dim: hsl(var(--brand-hue) 15% 75%);
     --text2-dim: hsl(var(--brand-hue) 10% 61%);
     --surface1-dim: hsl(var(--brand-hue) 10% 20%);
@@ -63,7 +59,7 @@ html {
     --surface-cta-shadow-dim-hover: var(--brand-hue) 30% 13%;
     --shadow-strength-dim: 0.2;
 }
-  
+
 :root {
     /* set defaults */
     --brand: var(--brand-light);
@@ -82,7 +78,7 @@ html {
 
     color-scheme: light;
 }
-  
+
 @media (prefers-color-scheme: dark) {
     :root {
         --brand: var(--brand-dark);
@@ -102,7 +98,7 @@ html {
         color-scheme: dark;
     }
 }
-  
+
 [color-scheme="light"] {
     --brand: var(--brand-light);
     --text1: var(--text1-light);
@@ -120,7 +116,7 @@ html {
 
     color-scheme: light;
 }
-  
+
 [color-scheme="dark"] {
     --brand: var(--brand-dark);
     --text1: var(--text1-dark);
@@ -138,7 +134,7 @@ html {
 
     color-scheme: dark;
 }
-  
+
 [color-scheme="dim"] {
     --brand: var(--brand-dim);
     --text1: var(--text1-dim);
@@ -161,16 +157,16 @@ html {
     transition: 0.2s ease-out;
     transition-property: color, background-color, box-shadow;
 }
-  
+
 .brand {
     color: var(--brand);
 }
-  
+
 .surface1 {
     background-color: var(--surface1);
     color: var(--text2);
 }
-  
+
 .surface2 {
     background-color: var(--surface2);
     color: var(--text2);
@@ -190,18 +186,18 @@ html {
         color: var(--text2);
     }
 }
-  
+
 .text1 {
     color: var(--text1);
 }
-  
+
 .text2 {
     color: var(--text2);
 }
-  
+
 .rad-shadow {
-    border: 1px solid hsl(var(--brand-hue) 10% 50% / 15%);
-    box-shadow: 0 1rem .5rem -.5rem;
+    border: 1px solid hsla(var(--brand-hue) 10% 50% / 0.15);
+    box-shadow: 0 1rem 0.5rem -0.5rem;
     box-shadow:
         0 2.8px 2.2px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.03)),
         0 6.7px 5.3px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.01)),
@@ -223,7 +219,7 @@ html {
 
 .rad-shadow-cta {
     border: 2px solid var(--text2);
-    box-shadow: 0 1rem .5rem -.5rem;
+    box-shadow: 0 1rem 0.5rem -0.5rem;
     box-shadow: 0 20px 84px 16px hsl(var(--surface-cta-shadow) / var(--shadow-strength));
     box-shadow:
         0 2.8px 2.2px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.03)),

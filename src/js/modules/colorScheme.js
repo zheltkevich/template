@@ -12,16 +12,19 @@ const colors = {
     dim: 'hsl(200 10% 20%)',
 };
 
-const setScheme = scheme => {
-    localStorage.setItem('color-scheme', scheme);
-    html.setAttribute('color-scheme', scheme);
-
+const setTopCurtainColor = scheme => {
     if (scheme === 'auto') {
         if (prefersLightScheme.matches) meta.setAttribute('content', colors.light);
         else if (prefersDarkScheme.matches) meta.setAttribute('content', colors.dark);
     } else {
         meta.setAttribute('content', colors[scheme]);
     }
+};
+
+const setScheme = scheme => {
+    localStorage.setItem('color-scheme', scheme);
+    html.setAttribute('color-scheme', scheme);
+    setTopCurtainColor(scheme);
 };
 
 const toggleLabelPickedClass = value => {

@@ -87,26 +87,41 @@ a {
     display: flex;
     overflow: hidden;
     margin: 0;
-    padding: 0;
+    padding: 0 12px;
     border-radius: 16px;
+    column-gap: 16px;
 
     label {
+        position: relative;
         display: flex;
         align-items: center;
-        padding: 10px 12px;
+        padding: 10px 0;
         color: var(--text2);
+        font-size: 14px;
 
         &:hover {
             cursor: pointer;
+        }
+
+        &:not(:last-child) {
+            &::after {
+                content: "";
+                position: absolute;
+                right: -8px;
+                display: flex;
+                width: 0;
+                height: 50%;
+                border-right: 1px solid hsla(var(--brand-hue) 10% 50% / 0.15);
+            }
         }
     }
 
     input {
         display: flex;
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
         margin: 0;
-        margin-right: 8px;
+        margin-right: 4px;
 
         &:hover {
             cursor: pointer;

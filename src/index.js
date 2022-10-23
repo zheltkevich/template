@@ -1,12 +1,11 @@
 // import _ from 'lodash';
-import printMeModules from '@modules/modules.js';
+import '@modules/modules.js';
 import printMeUtils from '@utils/utils.js';
 import '@css/index.css';
 import '@scss/index.scss';
 import json from '@docs/message.json5';
 
 printMeUtils(json.title);
-printMeModules(json.title);
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {

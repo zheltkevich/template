@@ -14,15 +14,13 @@ const colors = {
 
 const setScheme = scheme => {
     localStorage.setItem('color-scheme', scheme);
+    html.setAttribute('color-scheme', scheme);
 
     if (scheme === 'auto') {
         if (prefersLightScheme.matches) meta.setAttribute('content', colors.light);
         else if (prefersDarkScheme.matches) meta.setAttribute('content', colors.dark);
-
-        html.removeAttribute('color-scheme');
     } else {
         meta.setAttribute('content', colors[scheme]);
-        html.setAttribute('color-scheme', scheme);
     }
 };
 

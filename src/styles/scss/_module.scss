@@ -99,13 +99,12 @@ a {
         &:hover {
             cursor: pointer;
         }
-
-        &.checked {
-            background-color: var(--surface2);
-        }
     }
 
     input {
+        display: flex;
+        width: 16px;
+        height: 16px;
         margin: 0;
         margin-right: 8px;
 

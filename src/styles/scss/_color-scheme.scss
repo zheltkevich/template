@@ -153,23 +153,31 @@ html {
     color-scheme: dark;
 }
 
-* {
+$trs: 0.2s ease-out;
+
+@mixin color-scheme-transition {
     transition: 0.2s ease-out;
-    transition-property: color, background-color, box-shadow;
+    transition-property: color, background-color, border-color, box-shadow;
 }
 
 .brand {
     color: var(--brand);
+
+    @include color-scheme-transition;
 }
 
 .surface1 {
     background-color: var(--surface1);
     color: var(--text2);
+
+    @include color-scheme-transition;
 }
 
 .surface2 {
     background-color: var(--surface2);
     color: var(--text2);
+
+    @include color-scheme-transition;
 
     &.hover:hover {
         background-color: var(--surface2-hover);
@@ -181,6 +189,8 @@ html {
     background-color: var(--surface1);
     color: var(--text2);
 
+    @include color-scheme-transition;
+
     &.hover:hover {
         background-color: var(--surface2-cta-hover);
         color: var(--text2);
@@ -189,15 +199,18 @@ html {
 
 .text1 {
     color: var(--text1);
+
+    @include color-scheme-transition;
 }
 
 .text2 {
     color: var(--text2);
+
+    @include color-scheme-transition;
 }
 
 .rad-shadow {
     border: 1px solid hsla(var(--brand-hue) 10% 50% / 0.15);
-    box-shadow: 0 1rem 0.5rem -0.5rem;
     box-shadow:
         0 2.8px 2.2px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.03)),
         0 6.7px 5.3px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.01)),
@@ -205,6 +218,8 @@ html {
         0 22.3px 17.9px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.02)),
         0 41.8px 33.4px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.03)),
         0 100px 80px hsl(var(--surface-shadow) / var(--shadow-strength));
+
+    @include color-scheme-transition;
 
     &.hover:hover {
         box-shadow:
@@ -219,8 +234,6 @@ html {
 
 .rad-shadow-cta {
     border: 2px solid var(--text2);
-    box-shadow: 0 1rem 0.5rem -0.5rem;
-    box-shadow: 0 20px 84px 16px hsl(var(--surface-cta-shadow) / var(--shadow-strength));
     box-shadow:
         0 2.8px 2.2px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.03)),
         0 6.7px 5.3px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.01)),
@@ -228,6 +241,8 @@ html {
         0 22.3px 17.9px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.02)),
         0 41.8px 33.4px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.03)),
         0 100px 80px hsl(var(--surface-shadow) / var(--shadow-strength));
+
+    @include color-scheme-transition;
 
     &.hover:hover {
         box-shadow: 0 16px 40px 8px hsl(var(--surface-cta-shadow) / var(--shadow-strength));

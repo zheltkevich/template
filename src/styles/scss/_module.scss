@@ -8,8 +8,6 @@ body {
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     margin: 0;
-    background-color: var(--surface1);
-    color: var(--text1);
     font-family:
         Montserrat,
         system-ui,
@@ -78,7 +76,7 @@ a {
         fill: currentcolor;
     }
 
-    &.brand {
+    &.rad-shadow {
         border: none;
     }
 }

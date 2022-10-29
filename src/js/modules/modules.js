@@ -1,3 +1,6 @@
-import initColorScheme from '@modules/colorScheme.js';
+import ColorScheme from '@modules/colorScheme.js';
+import PWA from '@modules/pwa.js';
 
-initColorScheme();
+ColorScheme.init();
+PWA.registerSW();
+PWA.setupInstallButton();

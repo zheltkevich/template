@@ -55,11 +55,15 @@ schemeSwitcher.addEventListener('input', event => {
     setScheme(value);
 });
 
-const initColorScheme = () => {
+const init = () => {
     setupScheme();
     setupSwitcher();
 };
 
-export default initColorScheme;
+const ColorScheme = {
+    init,
+};
+
+export default ColorScheme;
 
 

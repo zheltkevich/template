@@ -21,7 +21,7 @@ if ('serviceWorker' in navigator) {
 
 // eslint-disable-next-line init-declarations
 let deferredPrompt;
-const addBtn = document.querySelector('.install-button');
+const addBtn = document.querySelector('#install-button');
 
 addBtn.style.display = 'none';
 
@@ -31,7 +31,7 @@ window.addEventListener('beforeinstallprompt', event => {
     // Stash the event so it can be triggered later.
     deferredPrompt = event;
     // Update UI to notify the user they can add to home screen
-    addBtn.style.display = 'block';
+    addBtn.style.display = 'flex';
 
     addBtn.addEventListener('click', _e => {
         // hide our user interface that shows our A2HS button

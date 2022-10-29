@@ -18,3 +18,38 @@ if ('serviceWorker' in navigator) {
             });
     });
 }
+
+// eslint-disable-next-line init-declarations
+let deferredPrompt;
+const addBtn = document.querySelector('.install-button');
+
+addBtn.style.display = 'none';
+
+window.addEventListener('beforeinstallprompt', event => {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    event.preventDefault();
+    // Stash the event so it can be triggered later.
+    deferredPrompt = event;
+    // Update UI to notify the user they can add to home screen
+    addBtn.style.display = 'block';
+
+    addBtn.addEventListener('click', _e => {
+        // hide our user interface that shows our A2HS button
+        addBtn.style.display = 'none';
+        // Show the prompt
+        deferredPrompt.prompt();
+        // Wait for the user to respond to the prompt
+        // eslint-disable-next-line max-nested-callbacks
+        deferredPrompt.userChoice.then(choiceResult => {
+            if (choiceResult.outcome === 'accepted') {
+                // eslint-disable-next-line no-console
+                console.log('User accepted the A2HS prompt');
+            } else {
+                // eslint-disable-next-line no-console
+                console.log('User dismissed the A2HS prompt');
+            }
+
+            deferredPrompt = null;
+        });
+    });
+});
